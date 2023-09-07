@@ -1,0 +1,71 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Input",
+						"type": "DatasetReference"
+					},
+					"name": "Moviedatasource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Output",
+						"type": "DatasetReference"
+					},
+					"name": "Outputrequired"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Romance",
+					"description": "Add expression for the filter."
+				},
+				{
+					"name": "Comedy"
+				},
+				{
+					"name": "Drama"
+				},
+				{
+					"name": "combined"
+				},
+				{
+					"name": "RottemTomatoes"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Film as string,",
+				"          Genre as string,",
+				"          {Lead Studio} as string,",
+				"          {Audience score %} as string,",
+				"          Profitability as string,",
+				"          {Rotten Tomatoes %} as string,",
+				"          {Worldwide Gross} as string,",
+				"          Year as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Moviedatasource",
+				"Moviedatasource filter(equals({Genre}, 'Romance')) ~> Romance",
+				"Moviedatasource filter(equals({Genre}, 'Comedy')) ~> Comedy",
+				"Moviedatasource filter(equals({Genre}, 'Drama')) ~> Drama",
+				"Drama, Comedy, Romance union(byName: true)~> combined",
+				"combined filter(toInteger({Rotten Tomatoes %}) >= 80) ~> RottemTomatoes",
+				"RottemTomatoes sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Outputrequired"
+			]
+		}
+	}
+}
