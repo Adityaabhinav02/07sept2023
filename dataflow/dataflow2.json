@@ -1,0 +1,47 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "RestResource1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Json3",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     httpMethod: 'GET',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     paginationRules: ['supportRFC5988' -> 'true'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          body as (results as (apparentTemperature as (unit as string, unitType as string, value as string), ceiling as (unit as string, unitType as string, value as string), cloudCover as string, dateTime as string, dewPoint as (unit as string, unitType as string, value as string), hasPrecipitation as string, iconCode as string, isDayTime as string, obstructionsToVisibility as string, past24HourTemperatureDeparture as (unit as string, unitType as string, value as string), phrase as string, precipitationSummary as (past12Hours as (unit as string, unitType as string, value as string), past18Hours as (unit as string, unitType as string, value as string), past24Hours as (unit as string, unitType as string, value as string), past3Hours as (unit as string, unitType as string, value as string), past6Hours as (unit as string, unitType as string, value as string), past9Hours as (unit as string, unitType as string, value as string), pastHour as (unit as string, unitType as string, value as string)), pressure as (unit as string, unitType as string, value as string), pressureTendency as (code as string, localizedDescription as string), realFeelTemperature as (unit as string, unitType as string, value as string), realFeelTemperatureShade as (unit as string, unitType as string, value as string), relativeHumidity as string, temperature as (unit as string, unitType as string, value as string), temperatureSummary as (past12Hours as (maximum as (unit as string, unitType as string, value as string), minimum as (unit as string, unitType as string, value as string)), past24Hours as (maximum as (unit as string, unitType as string, value as string), minimum as (unit as string, unitType as string, value as string)), past6Hours as (maximum as (unit as string, unitType as string, value as string), minimum as (unit as string, unitType as string, value as string))), uvIndex as string, uvIndexPhrase as string, visibility as (unit as string, unitType as string, value as string), wetBulbTemperature as (unit as string, unitType as string, value as string), wind as (direction as (degrees as string, localizedDescription as string), speed as (unit as string, unitType as string, value as string)), windChillTemperature as (unit as string, unitType as string, value as string), windGust as (speed as (unit as string, unitType as string, value as string)))[]),",
+				"          headers as (Vary as string, {X-MSEdge-Ref} as string, {Transfer-Encoding} as string, {X-Cache} as string, {Strict-Transport-Security} as string, Expires as string, {Cache-Control} as string, {x-ms-azuremaps-region} as string, {X-Content-Type-Options} as string, {Content-Type} as string, Date as string)",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

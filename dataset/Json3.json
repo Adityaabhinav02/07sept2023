@@ -1,0 +1,524 @@
+{
+	"name": "Json3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "container2"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"body": {
+					"type": "object",
+					"properties": {
+						"results": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"apparentTemperature": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"ceiling": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"cloudCover": {
+										"type": "string"
+									},
+									"dateTime": {
+										"type": "string"
+									},
+									"dewPoint": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"hasPrecipitation": {
+										"type": "string"
+									},
+									"iconCode": {
+										"type": "string"
+									},
+									"isDayTime": {
+										"type": "string"
+									},
+									"obstructionsToVisibility": {
+										"type": "string"
+									},
+									"past24HourTemperatureDeparture": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"phrase": {
+										"type": "string"
+									},
+									"precipitationSummary": {
+										"type": "object",
+										"properties": {
+											"past12Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"past18Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"past24Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"past3Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"past6Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"past9Hours": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											},
+											"pastHour": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"pressure": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"pressureTendency": {
+										"type": "object",
+										"properties": {
+											"code": {
+												"type": "string"
+											},
+											"localizedDescription": {
+												"type": "string"
+											}
+										}
+									},
+									"realFeelTemperature": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"realFeelTemperatureShade": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"relativeHumidity": {
+										"type": "string"
+									},
+									"temperature": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"temperatureSummary": {
+										"type": "object",
+										"properties": {
+											"past12Hours": {
+												"type": "object",
+												"properties": {
+													"maximum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													},
+													"minimum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											},
+											"past24Hours": {
+												"type": "object",
+												"properties": {
+													"maximum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													},
+													"minimum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											},
+											"past6Hours": {
+												"type": "object",
+												"properties": {
+													"maximum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													},
+													"minimum": {
+														"type": "object",
+														"properties": {
+															"unit": {
+																"type": "string"
+															},
+															"unitType": {
+																"type": "string"
+															},
+															"value": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"uvIndex": {
+										"type": "string"
+									},
+									"uvIndexPhrase": {
+										"type": "string"
+									},
+									"visibility": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"wetBulbTemperature": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"wind": {
+										"type": "object",
+										"properties": {
+											"direction": {
+												"type": "object",
+												"properties": {
+													"degrees": {
+														"type": "string"
+													},
+													"localizedDescription": {
+														"type": "string"
+													}
+												}
+											},
+											"speed": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"windChillTemperature": {
+										"type": "object",
+										"properties": {
+											"unit": {
+												"type": "string"
+											},
+											"unitType": {
+												"type": "string"
+											},
+											"value": {
+												"type": "string"
+											}
+										}
+									},
+									"windGust": {
+										"type": "object",
+										"properties": {
+											"speed": {
+												"type": "object",
+												"properties": {
+													"unit": {
+														"type": "string"
+													},
+													"unitType": {
+														"type": "string"
+													},
+													"value": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"headers": {
+					"type": "object",
+					"properties": {
+						"Vary": {
+							"type": "string"
+						},
+						"X-MSEdge-Ref": {
+							"type": "string"
+						},
+						"Transfer-Encoding": {
+							"type": "string"
+						},
+						"X-Cache": {
+							"type": "string"
+						},
+						"Strict-Transport-Security": {
+							"type": "string"
+						},
+						"Expires": {
+							"type": "string"
+						},
+						"Cache-Control": {
+							"type": "string"
+						},
+						"x-ms-azuremaps-region": {
+							"type": "string"
+						},
+						"X-Content-Type-Options": {
+							"type": "string"
+						},
+						"Content-Type": {
+							"type": "string"
+						},
+						"Date": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	}
+}
